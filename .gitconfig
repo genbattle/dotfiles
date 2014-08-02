@@ -1,0 +1,9 @@
+[user]
+	name = Nick Sarten
+	email = gen.battle@gmail.com
+[color]
+	diff = auto
+	status = auto
+	ui = auto
+[core]
+	editor = vim
