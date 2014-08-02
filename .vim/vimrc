@@ -1,0 +1,47 @@
+" # Vundle compulsory setup #
+set nocompatible
+filetype off
+filetype plugin indent off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" End Vundle compulsory setup
+
+" # Other local plugins #
+set rtp+=$GOROOT/misc/vim
+" End other local plugins
+
+" # Vundle plugins #
+" Vundle itself, mandatory
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-surround'
+" TODO: Other plugins on list
+" End Vundle plugins
+
+" # Vundle post-setup
+call vundle#end()
+filetype plugin indent on
+" End Vundle post-setup
+
+" # Begin misc. options
+syntax on
+" Tab options
+set tabstop=4
+set shiftwidth=4
+set autoindent
+" Show (partial) commands
+set showcmd
+" Search options (incremental, ignore case, smart search)
+set incsearch
+set ignorecase
+set scs
+" No automatic backups
+set nobackup
+set nowritebackup
+" Mouse mode
+set mouse=a
+set selectmode+=mouse
+" TODO: Statusline options
+" TODO: list characters - visual whitespace
+" TODO: Colorscheme
+" End misc. options
