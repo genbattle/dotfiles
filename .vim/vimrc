@@ -15,6 +15,14 @@ set rtp+=$GOROOT/misc/vim
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
+Plugin 'wting/rust.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-easymotion'
 " TODO: Other plugins on list
 " End Vundle plugins
 
@@ -41,7 +49,8 @@ set nowritebackup
 " Mouse mode
 set mouse=a
 set selectmode+=mouse
+" Colorscheme
+colorscheme molokai
 " TODO: Statusline options
 " TODO: list characters - visual whitespace
-" TODO: Colorscheme
 " End misc. options
