@@ -13,16 +13,21 @@ set rtp+=$GOROOT/misc/vim
 " # Vundle plugins #
 " Vundle itself, mandatory
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
 Plugin 'wting/rust.vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'drmikehenry/vim-headerguard'
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Rip-Rip/clang_complete'
+
 " TODO: Other plugins on list
 " End Vundle plugins
 
@@ -47,10 +52,37 @@ set scs
 set nobackup
 set nowritebackup
 " Mouse mode
-set mouse=a
+set mouse=ni
 set selectmode+=mouse
 " Colorscheme
 colorscheme molokai
+" NeoComplete Options
+let g:neocomplete#enable_at_startup = 1
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+	let g:neocomplete#sources#omni#input_patterns = {}
+endif
+" Workaround to get NeoComplete to play nice with clang_complete
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#sources#omni#input_patterns.c =
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.cpp =
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+" Clang-Complete options
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library = 1
+
 " TODO: Statusline options
 " TODO: list characters - visual whitespace
 " End misc. options
+
+" # Begin Key Bindings
+" Headerguard binding for cpp/c files
+" if &filetype=='cpp' || &filetype=='c'
+	map <buffer> <C-g> :HeaderguardAdd<CR>
+"endif
+
+" YCM Keybindings
+nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
+" End Key Bindings
